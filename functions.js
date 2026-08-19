@@ -96,3 +96,56 @@ function despedir(nombre="Invitado"){
 console.log(`\n[+] ${despedir()}\n`)
 
 
+// funcion que usa otra funcion como parametro
+
+function doblar(numero){
+  return numero * 2;
+}
+
+function procesarArray(array, procesar) {
+  const resultado = [];
+  for (let i = 0; i < array.length; i++) {
+    resultado.push(procesar(array[i]));
+  }
+  return resultado;
+}
+
+
+
+const numeros = [1, 2, 3, 4, 5];
+const numerosDoblados = procesarArray(numeros, doblar);
+
+console.log(`\n[+] Array original: ${numeros}`);
+console.log(`[+] Array doblado: ${numerosDoblados}\n`);
+
+
+//funcion que retorna otra funcion
+
+function crearMultiplicador(factor) {
+  return function (numero) {
+    return numero * factor;
+  }
+}
+
+const duplicar = crearMultiplicador(2);
+const triplicar = crearMultiplicador(3);
+
+console.log(`\n[+] Duplicar 5 = ${duplicar(5)}`);
+console.log(`[+] Triplicar 5 = ${triplicar(5)}\n`);
+
+//funcion anónima
+
+
+const sumarAnonima = function(a, b) {
+  return a + b;
+}
+
+const resultadoAnonima = sumarAnonima(10, 15);
+console.log(`\n[+] Resultado de la suma con funcion anonima = ${resultadoAnonima}\n`);
+
+
+
+
+
+
+
